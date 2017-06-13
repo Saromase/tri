@@ -5,11 +5,6 @@
     <input type="text" name="nombre">
     <input type="submit" value="OK">
 </form>
-</body>
-</html>
-
-
-
 <?php
 /**
  * Created by PhpStorm.
@@ -17,13 +12,35 @@
  * Date: 13/06/17
  * Time: 17:20
  */
+$romainUnite=[" ","I","II","III","IV","V","VI","VII","VIII","IX"];
+$romainDizaine=[" ","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"];
+$romainCentaine=[" ","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"];
+$romainMillier=[" ","M","MM","MMM"];
 
-$toto = (string)$_POST['nombre'];
+$nombreArabe = (string)$_POST['nombre'];
+$taille=strlen($nombreArabe);
 
-for ($i = 0; $i < count($toto); $i++){
-    $nb1 = $toto[$i];
-    var_dump($nb1);
-    $nb2 = $toto[$i+1];
-    var_dump($nb2);
-}
+for ($i=0;$i<$taille;$i++){
+	switch ($taille){
+		case 1:
+		$unite=$romainUnite[$nombreArabe[$i]];
+		echo $unite;
+		break;
+		
+		case 2:
+		$dizaine=$romainDizaine[$nombreArabe[$i]];
+		$unite=$romainUnite[$nombreArabe[$i+1]];
+		$resultat=$dizaine+$unite;
+		echo $resultat;
+		break;
+	}
+		}
+
+
+
+
 ?>
+
+
+</body>
+</html>
