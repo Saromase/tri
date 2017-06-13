@@ -14,7 +14,9 @@ $referential = [
 ];
 
 //$number = (string)$_POST['nombre'];
-$number = (string)50;
+$number = (string)52;
+$number = strrev($number);
+
 $taille = strlen($number);
 $final = [];
 
@@ -24,7 +26,4 @@ for ($i = $taille - 1; $i >= 0; $i--) {
     }
 }
 
-
-//var_dump($final);
 var_dump(implode("", $final));
-
