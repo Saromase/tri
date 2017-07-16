@@ -34,4 +34,69 @@ if (($_POST['centaine'] or $_POST['dixaine'] or $_POST['unite']) != NULL) {
 ?>
 
 
+<?php 
+function caesarEncryption(string $input){
+    $alphabet = [' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    $splitArray = str_split($input);
+        
+
+}
+
+function Encryption($ary, $number){
+    
+    for ($i=0; $i < count($ary); $i++){
+        $remplacement = array($i+$number => $ary[$i]);
+        $newAry = array_replace($newAry, $remplacement);
+    }
+    return $newAry;
+}
+function printArray($ary){
+    echo '<pre>';
+    print_r($ary);
+    echo '</pre>';
+}
+$alphabet = [' ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+$alph = Encryption($alphabet,2);
+printArray($alph);
+
+
+/* $string = "bonjour je suis romain";
+$test = caesarEncryption($string);
+printArray($test); */
+?>
+
+<?php
+function happyNumber(int $number){
+    $firstCarre = $number * $number;
+    while (isset($message) == false){
+        $squarred = resultSquarred($firstCarre);
+        if ($squarred = 0){
+            $message = "Féliciation le nombre que vous avez choisit est un nombre heureux";
+        } else if ($squarred = 4 || $squarred = 16 || $squarred = 37 || $squarred = 58 || $squarred = 89 || $squarred = 145 || $squarred = 42 || $squarred = 20) {
+            $message = "Le nombre que vous avez choisit est un nombre malheureux";
+        } else {
+            $squarred = resultSquarred($squarred);
+        }
+    }
+    return $message;
+}
+
+function resultSquarred(string $string){
+    $numberSplit = str_split($string,1);
+    $resultat = 0;
+    for ($i = 0; $i < count($numberSplit); $i++){
+        $resultat += $numberSplit[$i] * $numberSplit[$i];
+    }
+    echo $resultat;
+    return $resultat;
+}
+$test = resultSquarred(7);
+echo $test;
+$test2 = resultSquarred($test);
+echo $test2;
+$test3 = resultSquarred($test3);
+echo $test3;
+echo happyNumber(7);
+
+
 
